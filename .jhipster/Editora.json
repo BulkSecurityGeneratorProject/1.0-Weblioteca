@@ -1,0 +1,30 @@
+{
+    "name": "Editora",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "livro",
+            "otherEntityRelationshipName": "editora",
+            "relationshipName": "livro",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190424190259",
+    "entityTableName": "editora",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

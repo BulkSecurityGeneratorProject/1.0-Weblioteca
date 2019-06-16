@@ -1,0 +1,44 @@
+{
+    "name": "Multa",
+    "fields": [
+        {
+            "fieldName": "valor",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cliente",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "emprestimo",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "multa",
+            "relationshipName": "cliente",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "emprestimo",
+            "otherEntityRelationshipName": "multa",
+            "relationshipName": "emprestimo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190424190303",
+    "entityTableName": "multa",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

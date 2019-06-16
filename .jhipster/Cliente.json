@@ -1,0 +1,63 @@
+{
+    "name": "Cliente",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cpf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endereco",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "statusReserva",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "statusMulta",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "multa",
+            "otherEntityRelationshipName": "cliente",
+            "relationshipName": "multa",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "emprestimo",
+            "otherEntityRelationshipName": "cliente",
+            "relationshipName": "emprestimo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reserva",
+            "otherEntityRelationshipName": "cliente",
+            "relationshipName": "reserva"
+        }
+    ],
+    "changelogDate": "20190424190257",
+    "entityTableName": "cliente",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

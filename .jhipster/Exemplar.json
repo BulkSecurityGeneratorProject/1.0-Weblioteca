@@ -1,0 +1,52 @@
+{
+    "name": "Exemplar",
+    "fields": [
+        {
+            "fieldName": "emprestado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "reservado",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "livro",
+            "otherEntityRelationshipName": "exemplar",
+            "relationshipName": "livro",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "emprestimo",
+            "otherEntityRelationshipName": "exemplar",
+            "relationshipName": "emprestimo",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "reserva",
+            "otherEntityRelationshipName": "exemplar",
+            "relationshipName": "reserva",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "devolucao",
+            "otherEntityRelationshipName": "exemplar",
+            "relationshipName": "devolucao",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190424190300",
+    "entityTableName": "exemplar",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

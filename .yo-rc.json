@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "myapp"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "Weblioteca",
+        "packageName": "myapp",
+        "packageFolder": "myapp",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "postgresql",
+        "prodDatabaseType": "postgresql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": "eureka",
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NjNlY2IwOWY5ODFhOGNlYzIzOTkzNzliZTA2NWExY2FkMjMxZGIzZDU2ZTZiN2I1OWVmNjI5ZmRiMGNjOWNiMTc2N2RkYjRiZDQ4OWQwOTY0M2I4ZDZjMmQyMGJkMTk2NmFlOTFlOWU1ODNkYjNiYTRmMGQ4Njc1NzQ1ZjliNmY=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}

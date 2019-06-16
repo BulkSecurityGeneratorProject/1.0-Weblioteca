@@ -1,0 +1,53 @@
+entity Editora {
+    nome String required,
+}
+
+entity Exemplar {
+    emprestado Boolean,
+	reservado Boolean   
+}
+
+entity Autor{
+	nome String required,
+    dataNascimento LocalDate required,
+    nacionalidade String 
+    
+}
+
+entity Livro {
+	titulo String required,
+	categoria String required,
+}
+
+entity Emprestimo {
+    dataEmprestimo LocalDate required, 
+}
+
+entity Reserva {
+    dataReseva LocalDate required
+}
+
+entity Devolucao {
+    dataDevolucao LocalDate required
+}
+
+relationship OneToOne{
+  	Emprestimo to Exemplar,
+  	Reserva to Exemplar,
+    Devolucao to Exemplar,
+    Livro to Editora,
+    Livro to Autor
+}
+
+relationship ManyToOne{
+	Exemplar to Livro,
+    Devolucao to User,
+    Reserva to User,
+    Emprestimo to User
+}
+
+
+
+paginate Editora, Livro, Autor with pagination
+
+

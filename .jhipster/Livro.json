@@ -1,0 +1,52 @@
+{
+    "name": "Livro",
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "categoria",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "editora",
+            "otherEntityRelationshipName": "livro",
+            "relationshipName": "editora",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "autor",
+            "otherEntityRelationshipName": "livro",
+            "relationshipName": "autor",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "exemplar",
+            "otherEntityRelationshipName": "livro",
+            "relationshipName": "exemplar"
+        }
+    ],
+    "changelogDate": "20190424190301",
+    "entityTableName": "livro",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
