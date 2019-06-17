@@ -2,7 +2,7 @@
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
             <h2 id="myUserLabel">
-                Create or edit a User
+                Criar ou Editar um usuario
             </h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -93,7 +93,7 @@
                 <div class="form-check">
                     <label class="form-check-label" for="activated">
                         <input class="form-check-input" [disabled]="user.id === null" type="checkbox" id="activated" name="activated" [(ngModel)]="user.activated">
-                        <span>Activated</span>
+                        <span>Ativado</span>
                     </label>
                 </div>
 
@@ -107,10 +107,10 @@
             <div>
                 <button type="button" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span
-                   >Cancel</span>
+                   >Cancelar</span>
                 </button>
                 <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Sarvar</span>
                 </button>
             </div>
         </form>

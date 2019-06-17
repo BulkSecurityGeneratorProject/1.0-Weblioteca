@@ -14,21 +14,15 @@
                         textFalse="Deactivated">
                     </jhi-boolean>
                 </dd>
-                <dt><span>First Name</span></dt>
+                <dt><span>Primeiro Nome</span></dt>
                 <dd>{{user.firstName}}</dd>
-                <dt><span>Last Name</span></dt>
+                <dt><span>Último Nome</span></dt>
                 <dd>{{user.lastName}}</dd>
                 <dt><span>Email</span></dt>
                 <dd>{{user.email}}</dd>
-                <dt><span>Created By</span></dt>
-                <dd>{{user.createdBy}}</dd>
-                <dt><span>Created Date</span></dt>
+                <dt><span>Data de criação </span></dt>
                 <dd>{{user.createdDate | date:'dd/MM/yy HH:mm' }}</dd>
-                <dt><span>Last Modified By</span></dt>
-                <dd>{{user.lastModifiedBy}}</dd>
-                <dt><span>Last Modified Date</span></dt>
-                <dd>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</dd>
-                <dt><span>Profiles</span></dt>
+                <dt><span>Perfil</span></dt>
                 <dd>
                     <ul class="list-unstyled">
                         <li *ngFor="let authority of user.authorities">
@@ -44,4 +38,5 @@
             </button>
         </div>
     </div>
+    
 </div>
