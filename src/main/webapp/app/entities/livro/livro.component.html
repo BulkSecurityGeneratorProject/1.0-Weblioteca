@@ -4,7 +4,7 @@
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-livro" [routerLink]="['/livro/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span >
-            Create new Livro
+            Novo Livro
             </span>
         </button>
     </h2>
@@ -29,12 +29,12 @@
                 <td>{{livro.categoria}}</td>
                 <td>
                     <div *ngIf="livro.editora">
-                        <a [routerLink]="['../editora', livro.editora?.id, 'view' ]" >{{livro.editora?.id}}</a>
+                        <a [routerLink]="['../editora', livro.editora?.id, 'view' ]" >{{livro.editora?.nome}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="livro.autor">
-                        <a [routerLink]="['../autor', livro.autor?.id, 'view' ]" >{{livro.autor?.id}}</a>
+                        <a [routerLink]="['../autor', livro.autor?.id, 'view' ]" >{{livro.autor?.nome}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -43,13 +43,13 @@
                                 [routerLink]="['/livro', livro.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline">View</span>
+                            <span class="d-none d-md-inline">Visualizar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/livro', livro.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline">Edit</span>
+                            <span class="d-none d-md-inline">Eitar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', 'livro', { outlets: { popup: livro.id + '/delete'} }]"
@@ -57,7 +57,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
+                            <span class="d-none d-md-inline">Deletar</span>
                         </button>
                     </div>
                 </td>
@@ -72,5 +72,10 @@
         <div class="row justify-content-center">
             <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
         </div>
+        <div class="row justify-content-right">
+                <div class="col">
+                        <button md-button (click)="openDialog()">Relatório</button>
+                </div>
+            </div>
     </div>
 </div>

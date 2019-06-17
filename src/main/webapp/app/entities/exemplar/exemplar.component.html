@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span>Exemplars</span>
+        <span>Exemplares</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-exemplar" [routerLink]="['/exemplar/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span >
-            Create new Exemplar
+            Novo Exemplar
             </span>
         </button>
     </h2>
@@ -28,7 +28,7 @@
                 <td>{{exemplar.reservado}}</td>
                 <td>
                     <div *ngIf="exemplar.livro">
-                        <a [routerLink]="['../livro', exemplar.livro?.id, 'view' ]" >{{exemplar.livro?.id}}</a>
+                        <a [routerLink]="['../livro', exemplar.livro?.id, 'view' ]" >{{exemplar.livro?.titulo}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -37,13 +37,13 @@
                                 [routerLink]="['/exemplar', exemplar.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline">View</span>
+                            <span class="d-none d-md-inline">Visualizar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/exemplar', exemplar.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', 'exemplar', { outlets: { popup: exemplar.id + '/delete'} }]"
@@ -51,7 +51,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
+                            <span class="d-none d-md-inline">Deletar</span>
                         </button>
                     </div>
                 </td>

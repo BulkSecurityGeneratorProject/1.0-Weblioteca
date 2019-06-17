@@ -16,13 +16,13 @@
                 <dt><span>Editora</span></dt>
                 <dd>
                     <div *ngIf="livro.editora">
-                        <a [routerLink]="['/editora', livro.editora?.id, 'view']">{{livro.editora?.id}}</a>
+                        <a [routerLink]="['/editora', livro.editora?.id, 'view']">{{livro.editora?.nome}}</a>
                     </div>
                 </dd>
                 <dt><span>Autor</span></dt>
                 <dd>
                     <div *ngIf="livro.autor">
-                        <a [routerLink]="['/autor', livro.autor?.id, 'view']">{{livro.autor?.id}}</a>
+                        <a [routerLink]="['/autor', livro.autor?.id, 'view']">{{livro.autor?.nome}}</a>
                     </div>
                 </dd>
             </dl>
@@ -30,13 +30,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Voltar</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/livro', livro.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Editar</span>
             </button>
         </div>
     </div>

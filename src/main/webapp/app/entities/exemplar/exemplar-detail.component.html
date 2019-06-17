@@ -16,7 +16,7 @@
                 <dt><span>Livro</span></dt>
                 <dd>
                     <div *ngIf="exemplar.livro">
-                        <a [routerLink]="['/livro', exemplar.livro?.id, 'view']">{{exemplar.livro?.id}}</a>
+                        <a [routerLink]="['/livro', exemplar.livro?.id, 'view']">{{exemplar.livro?.titulo}}</a>
                     </div>
                 </dd>
             </dl>
@@ -24,13 +24,13 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Voltar</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/exemplar', exemplar.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Editar</span>
             </button>
         </div>
     </div>
