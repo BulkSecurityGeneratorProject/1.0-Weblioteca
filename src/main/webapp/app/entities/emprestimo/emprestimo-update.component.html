@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-emprestimo-heading">Create or edit a Emprestimo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!emprestimo.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="emprestimo.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataEmprestimo">Data Emprestimo</label>
+                    <div class="input-group">
+                        <input id="field_dataEmprestimo" type="text" class="form-control" name="dataEmprestimo" ngbDatepicker  #dataEmprestimoDp="ngbDatepicker" [(ngModel)]="emprestimo.dataEmprestimo"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataEmprestimoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataEmprestimo?.dirty && editForm.controls.dataEmprestimo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataEmprestimo?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_exemplar">Exemplar</label>
+                    <select class="form-control" id="field_exemplar" name="exemplar" [(ngModel)]="emprestimo.exemplar">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exemplarOption.id === emprestimo.exemplar?.id ? emprestimo.exemplar : exemplarOption" *ngFor="let exemplarOption of exemplars; trackBy: trackExemplarById">{{exemplarOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="emprestimo.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === emprestimo.user?.id ? emprestimo.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

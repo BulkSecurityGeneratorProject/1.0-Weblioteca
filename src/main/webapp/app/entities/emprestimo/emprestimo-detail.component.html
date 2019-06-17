@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emprestimo">
+            <h2><span>Emprestimo</span> {{emprestimo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Data Emprestimo</span></dt>
+                <dd>
+                    <span>{{emprestimo.dataEmprestimo}}</span>
+                </dd>
+                <dt><span>Exemplar</span></dt>
+                <dd>
+                    <div *ngIf="emprestimo.exemplar">
+                        <a [routerLink]="['/exemplar', emprestimo.exemplar?.id, 'view']">{{emprestimo.exemplar?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{emprestimo.user?.id}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/emprestimo', emprestimo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

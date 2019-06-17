@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span>Emprestimos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-emprestimo" [routerLink]="['/emprestimo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Emprestimo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="emprestimos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Data Emprestimo</span></th>
+            <th><span>Exemplar</span></th>
+            <th><span>User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let emprestimo of emprestimos ;trackBy: trackId">
+                <td><a [routerLink]="['/emprestimo', emprestimo.id, 'view' ]">{{emprestimo.id}}</a></td>
+                <td>{{emprestimo.dataEmprestimo | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="emprestimo.exemplar">
+                        <a [routerLink]="['../exemplar', emprestimo.exemplar?.id, 'view' ]" >{{emprestimo.exemplar?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{emprestimo.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/emprestimo', emprestimo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/emprestimo', emprestimo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'emprestimo', { outlets: { popup: emprestimo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
