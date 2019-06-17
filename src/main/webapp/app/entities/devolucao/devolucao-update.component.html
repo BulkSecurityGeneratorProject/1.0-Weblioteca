@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-devolucao-heading">Create or edit a Devolucao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!devolucao.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="devolucao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataDevolucao">Data Devolucao</label>
+                    <div class="input-group">
+                        <input id="field_dataDevolucao" type="text" class="form-control" name="dataDevolucao" ngbDatepicker  #dataDevolucaoDp="ngbDatepicker" [(ngModel)]="devolucao.dataDevolucao"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDevolucaoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataDevolucao?.dirty && editForm.controls.dataDevolucao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataDevolucao?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_exemplar">Exemplar</label>
+                    <select class="form-control" id="field_exemplar" name="exemplar" [(ngModel)]="devolucao.exemplar">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exemplarOption.id === devolucao.exemplar?.id ? devolucao.exemplar : exemplarOption" *ngFor="let exemplarOption of exemplars; trackBy: trackExemplarById">{{exemplarOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="devolucao.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === devolucao.user?.id ? devolucao.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
