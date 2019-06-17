@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-devolucao-heading">Create or edit a Devolucao</h2>
+            <h2 id="jhi-devolucao-heading">Crie ou edite um Devolucao</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!devolucao.id">
@@ -34,19 +34,19 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_user">User</label>
+                    <label class="form-control-label" for="field_user">Usuario</label>
                     <select class="form-control" id="field_user" name="user" [(ngModel)]="devolucao.user" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="userOption.id === devolucao.user?.id ? devolucao.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                        <option [ngValue]="userOption.id === devolucao.user?.id ? devolucao.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}}</option>
                     </select>
                 </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Salvar</span>
                 </button>
             </div>
         </form>
